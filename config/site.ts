@@ -3,6 +3,7 @@ export const siteConfig = {
   url: "https://blog.encryptopia.dev",
   description: "My wierd knowledge, noted down.",
   author: "Clemens Hoffmann",
+  email: "contact@encryptopia.dev",
   links: {
     twitter: "https://twitter.com/paranoia8972",
     github: "https://github.com/Paranoia8972",

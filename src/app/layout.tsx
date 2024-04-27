@@ -2,10 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Header } from "@/components/header";
+import { SiteHeader } from "@/components/site-header";
 import { Providers } from "@/components/providers";
-import { Footer } from "@/components/footer";
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "#config";
+import { SiteFooter } from "@/components/site-footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -37,9 +37,9 @@ export default function RootLayout({
       >
         <Providers>
           <div className="relative flex min-h-dvh flex-col bg-background">
-            <Header />
+            <SiteHeader />
             <main className="flex-1">{children}</main>
-            <Footer />
+            <SiteFooter />
           </div>
         </Providers>
       </body>
