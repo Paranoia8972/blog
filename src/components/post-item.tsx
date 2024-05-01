@@ -3,6 +3,7 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { cn, formatDate } from "@/lib/utils";
 import { Tag } from "./tag";
+import Image from "next/image";
 
 interface PostItemProps {
   slug: string;
@@ -10,43 +11,42 @@ interface PostItemProps {
   description?: string;
   date: string;
   tags?: Array<string>;
+  img: string;
 }
 
 export function PostItem({
   slug,
   title,
-  description,
   date,
   tags,
+  img,
 }: PostItemProps) {
   return (
-    <article className="flex flex-col gap-2 border-border border-b py-3">
-      <div>
-        <h2 className="text-2xl font-bold">
-          <Link href={"/" + slug}>{title}</Link>
-        </h2>
-      </div>
-      <div className="flex gap-2">
-        {tags?.map((tag) => (
-          <Tag tag={tag} key={tag} />
-        ))}
-      </div>
-      <div className="max-w-none text-muted-foreground">{description}</div>
-      <div className="flex justify-between items-center">
-        <dl>
-          <dt className="sr-only">Published On</dt>
-          <dd className="text-sm sm:text-base font-medium flex items-center gap-1">
-            <Calendar className="h-4 w-4" />
-            <time dateTime={date}>{formatDate(date)}</time>
-          </dd>
-        </dl>
-        <Link
-          href={"/" + slug}
-          className={cn(buttonVariants({ variant: "link" }), "py-0")}
-        >
-          Read more →
+    <div className="my-2 flex flex-col h-[269px] w-[400]">
+      <Link href={"/" + slug}>
+        <Image
+          src={img}
+          alt={title}
+          className="cursor-pointer rounded-xl border object-cover aspect-video"
+          width={400}
+          height={200}
+        />
+      </Link>
+      <div className="flex justify-between items-center mt-2">
+        <Link href={"/" + slug}>
+          <p className="cursor-pointer px-4 text-2xl font-bold">
+            {title}
+          </p>
         </Link>
+        <div className="flex gap-2 px-4">
+          {tags?.map((tag) => (
+            <Tag tag={tag} key={tag} />
+          ))}
+        </div>
       </div>
-    </article>
+      <p className="mt-[-2px] px-4 text-sm font-light text-gray-400">
+        <time dateTime={date}>{formatDate(date)}</time>
+      </p>
+    </div>
   );
 }

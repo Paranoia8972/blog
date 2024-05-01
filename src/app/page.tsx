@@ -4,25 +4,26 @@ import Link from "next/link";
 import { PostItem } from "@/components/post-item";
 
 export default function Home() {
-  const latestPosts = sortPosts(posts).slice(0, 5);
+  const latestPosts = sortPosts(posts).slice(0, 6);
   return (
-    <section className="container max-w-4xl py-6 lg:py-10 flex flex-col space-y-6 mt-60">
-      <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-center">
-        Latest Posts
-      </h2>
-      <ul className="flex flex-col">
-        {latestPosts.map((post) => (
-          <li key={post.slug} className="first:border-t first:border-border">
-            <PostItem
-              slug={post.slug}
-              title={post.title}
-              description={post.description}
-              date={post.date}
-              tags={post.tags}
-            />
-          </li>
-        ))}
-      </ul>
-    </section>
+    <>
+      <div className="mx-auto py-6 lg:py-10">
+        <div className="mx-auto flex-[5]">
+          <div className="container grid grid-cols-1 justify-center gap-6 px-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
+            {latestPosts.map((post) => (
+              <PostItem
+                key={post.slug}
+                slug={post.slug}
+                title={post.title}
+                description={post.description}
+                date={post.date}
+                tags={post.tags}
+                img={post.img}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

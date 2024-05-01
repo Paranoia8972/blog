@@ -19,6 +19,7 @@ const posts = defineCollection({
       date: s.isodate(),
       published: s.boolean().default(true),
       tags: s.array(s.string()).optional(),
+      img: s.string().max(99),
       body: s.mdx(),
     })
     .transform(computedFields),
@@ -43,7 +44,7 @@ export default defineConfig({
         {
           behavior: "wrap",
           properties: {
-            className: ["subheading-anchor"],
+            className: ["subheading-anchor", "section_heading"],
             ariaLabel: "Link to section",
           },
         },

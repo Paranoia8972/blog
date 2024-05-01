@@ -31,6 +31,9 @@ export function MobileNav() {
           <MobileLink onOpenChange={setOpen} href="/posts">
             Posts
           </MobileLink>
+          <MobileLink onOpenChange={setOpen} href="/tags">
+            Tags
+          </MobileLink>
           <Link target="_blank" rel="noreferrer" href={siteConfig.links.github}>
             GitHub
           </Link>
