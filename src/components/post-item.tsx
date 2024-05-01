@@ -44,7 +44,7 @@ export function PostItem({
           ))}
         </div>
       </div>
-      <p className="mt-[-2px] px-4 text-sm font-light text-gray-400">
+      <p className="mt-[-2px] px-4 text-sm">
         <time dateTime={date}>{formatDate(date)}</time>
       </p>
     </div>
