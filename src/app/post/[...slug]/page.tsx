@@ -38,7 +38,7 @@ export async function generateMetadata({
     description: post.description,
     authors: { name: siteConfig.author },
     openGraph: {
-      title: post.title,
+      title: `Encryptopia Blog: ${post.title}`,
       description: post.description,
       type: "article",
       url: post.slug,
@@ -53,7 +53,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
+      title: `Encryptopia Blog: ${post.title}`,
       description: post.description,
       images: [`/api/og?${ogSearchParams.toString()}`],
     },
