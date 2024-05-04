@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Providers } from "@/components/providers";
 import { siteConfig } from "#config";
 import { SiteFooter } from "@/components/site-footer";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -48,6 +49,7 @@ export default function RootLayout({
           </div>
         </Providers>
       </body>
+      <Script defer src="https://stats.encryptopia.dev/script.js" data-website-id="d9e90069-7fed-42d9-9b37-a3e0979b3681"></Script>
     </html>
   );
 }
