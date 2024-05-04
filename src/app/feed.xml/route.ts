@@ -3,16 +3,6 @@ import { posts } from "#site/content";
 import { siteConfig, SiteConfig } from '#config';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    alternates: {
-        types: {
-            'application/rss+xml': siteConfig.url + '/feed.xml',
-        },
-    }
-};
-
 export async function GET() {
     const feed = new RSS({
         title: siteConfig.name,
