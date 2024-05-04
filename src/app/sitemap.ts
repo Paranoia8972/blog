@@ -9,9 +9,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         .filter(posts => posts.published)
         .map((post) => {
             return {
-                url: `${siteConfig.url}/blog/${post.slugAsParams}`,
+                url: `${siteConfig.url}/post/${post.slugAsParams}`,
                 priority: 1.0,
-                changeFrequency: 'daily',
+                changeFrequency: 'weekly',
                 lastModified: post.date
             }
         });
@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return {
             url: `${siteConfig.url}/tags/${tag}`,
             priority: 1.0,
-            changeFrequency: 'daily'
+            changeFrequency: 'weekly'
         }
     })
 
@@ -30,19 +30,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         {
             url: `${siteConfig.url}`,
             priority: 1.0,
-            changeFrequency: 'daily',
-            lastModified: new Date()
-        },
-        {
-            url: `${siteConfig.url}/sobre`,
-            priority: 1.0,
-            changeFrequency: 'daily',
+            changeFrequency: 'weekly',
             lastModified: new Date()
         },
         {
             url: `${siteConfig.url}/tags`,
             priority: 1.0,
-            changeFrequency: 'daily',
+            changeFrequency: 'weekly',
+            lastModified: new Date()
+        },
+        {
+            url: `${siteConfig.url}/posts`,
+            priority: 1.0,
+            changeFrequency: 'weekly',
+            lastModified: new Date()
+        },
+        {
+            url: `${siteConfig.url}/sitemap.xml`,
+            priority: 1.0,
+            changeFrequency: 'weekly',
+            lastModified: new Date()
+        },
+        {
+            url: `${siteConfig.url}/feed.xml`,
+            priority: 1.0,
+            changeFrequency: 'weekly',
             lastModified: new Date()
         },
         ...sitemapPost,
