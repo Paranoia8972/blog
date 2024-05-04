@@ -22,7 +22,7 @@ export function PostItem({
   img,
 }: PostItemProps) {
   return (
-    <div className="my-2 flex flex-col h-[269px] w-[400]">
+    <div className="my-2 flex flex-col">
       <Link href={"/" + slug}>
         <Image
           src={img}

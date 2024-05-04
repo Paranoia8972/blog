@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
+  alternates: {
+    types: {
+      'application/rss+xml': siteConfig.url + '/feed.xml',
+    },
+  }
 };
 
 export const viewport: Viewport = {

@@ -15,10 +15,10 @@ const posts = defineCollection({
     .object({
       slug: s.path(),
       title: s.string().max(99),
-      description: s.string().max(999).optional(),
+      description: s.string().max(999),
       date: s.isodate(),
       published: s.boolean().default(true),
-      tags: s.array(s.string()).optional(),
+      tags: s.array(s.string()),
       img: s.string().max(99),
       body: s.mdx(),
     })
