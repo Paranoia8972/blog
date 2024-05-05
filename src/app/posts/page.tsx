@@ -52,6 +52,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                   const { slug, date, title, description, tags, img } = post;
                   return (
                     <PostItem
+                      key={slug}
                       slug={slug}
                       date={date}
                       title={title}

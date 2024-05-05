@@ -71,6 +71,7 @@ export default function TagPage({ params }: TagPageProps) {
                   const { slug, date, title, description, tags, img } = post;
                   return (
                     <PostItem
+                      key={slug}
                       slug={slug}
                       date={date}
                       title={title}
