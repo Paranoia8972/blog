@@ -17,7 +17,7 @@ export async function GET() {
         feed.item({
             title: post.title,
             guid: post.slug,
-            url: post.slug,
+            url: siteConfig.url + '/' + post.slug,
             date: post.date,
             description: post.description,
             author: siteConfig.author,

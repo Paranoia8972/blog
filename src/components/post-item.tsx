@@ -22,7 +22,7 @@ export function PostItem({
   img,
 }: PostItemProps) {
   return (
-    <div className="my-2 flex flex-col">
+    <div className="m-auto flex flex-col">
       <Link href={"/" + slug}>
         <Image
           src={img}
@@ -32,21 +32,23 @@ export function PostItem({
           height={200}
         />
       </Link>
-      <div className="flex justify-between items-center mt-2">
-        <Link href={"/" + slug}>
-          <p className="cursor-pointer px-4 text-2xl font-bold">
-            {title}
-          </p>
-        </Link>
-        <div className="flex gap-2 px-4">
-          {tags?.map((tag) => (
-            <Tag tag={tag} key={tag} />
-          ))}
+      <div className="px-4">
+        <div className="flex flex-wrap justify-between mt-2 items-center">
+          <Link href={"/" + slug}>
+            <p className="cursor-pointer text-2xl font-bold">
+              {title}
+            </p>
+          </Link>
+          <div className="flex flex-wrap gap-2 pl-2 h-[22px]">
+            {tags?.map((tag) => (
+              <Tag tag={tag} key={tag} />
+            ))}
+          </div>
         </div>
+        <p className="mt-1 text-sm">
+          <time dateTime={date}>{formatDate(date)}</time>
+        </p>
       </div>
-      <p className="mt-[-2px] px-4 text-sm">
-        <time dateTime={date}>{formatDate(date)}</time>
-      </p>
     </div>
   );
 }

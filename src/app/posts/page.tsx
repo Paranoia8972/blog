@@ -33,24 +33,24 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const sortedTags = sortTagsByCount(tags);
 
   return (
-    <div className="container max-w-4xl py-6 lg:py-10">
-      <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-        <div className="flex-1 space-y-4">
-          <h1 className="inline-block font-black text-4xl lg:text-5xl">Posts</h1>
-          <p className="text-xl text-muted-foreground">
-            My weird knowledge, noted down.
-          </p>
-        </div>
-      </div>
-      <div className="grid grid-cols-12 gap-3 mt-8">
-        <div className="col-span-12 col-start-1 sm:col-span-8">
-          <hr />
-          {displayPosts?.length > 0 ? (
-            <ul className="flex flex-col">
-              {displayPosts.map((post) => {
-                const { slug, date, title, description, tags, img } = post;
-                return (
-                  <li key={slug}>
+    <>
+      <div className="mx-auto py-6 lg:py-10">
+        <div className="mx-auto flex-[5]">
+          <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
+            <div>
+              <h1 className="inline-block font-black text-4xl lg:text-5xl">Posts</h1>
+              <p className="text-xl text-muted-foreground">
+                My weird knowledge, noted down.
+              </p>
+              <hr />
+            </div>
+          </div>
+          <div className="container grid grid-cols-1 justify-center gap-6 px-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
+            {
+              displayPosts?.length > 0 ? (
+                displayPosts.map((post) => {
+                  const { slug, date, title, description, tags, img } = post;
+                  return (
                     <PostItem
                       slug={slug}
                       date={date}
@@ -59,29 +59,31 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       tags={tags}
                       img={img}
                     />
-                  </li>
-                );
-              })}
-            </ul>
-          ) : (
-            <p>Nothing to see here yet</p>
-          )}
+                  );
+                })
+              ) : (
+                <p>Nothing to see here yet</p>
+              )
+            }
+          </div>
+        </div>
+        <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
           <QueryPagination
             totalPages={totalPages}
             className="justify-end mt-4"
           />
+          <Card className="col-span-12 row-start-3 h-fit sm:col-span-4 sm:col-start-9 sm:row-start-1 mt-16">
+            <CardHeader>
+              <CardTitle>Tags</CardTitle>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-2">
+              {sortedTags?.map((t) => (
+                <Tag tag={t} key={t} count={tags[t]} />
+              ))}
+            </CardContent>
+          </Card>
         </div>
-        <Card className="col-span-12 row-start-3 h-fit sm:col-span-4 sm:col-start-9 sm:row-start-1">
-          <CardHeader>
-            <CardTitle>Tags</CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-wrap gap-2">
-            {sortedTags?.map((tag) => (
-              <Tag tag={tag} key={tag} count={tags[tag]} />
-            ))}
-          </CardContent>
-        </Card>
       </div>
-    </div>
+    </>
   );
 }

@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SiteHeader } from "@/components/site-header";
-import { Providers } from "@/components/providers";
 import { siteConfig } from "#config";
 import { SiteFooter } from "@/components/site-footer";
+import { Providers } from "@/components/providers";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });

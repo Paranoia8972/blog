@@ -7,6 +7,8 @@ import { Metadata } from "next";
 import { siteConfig } from "#config";
 import { Tag } from "@/components/tag";
 import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ShareButton from "@/components/share-button";
 
 interface PostPageProps {
   params: {
@@ -69,11 +71,9 @@ export async function generateStaticParams(): Promise<
 
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
-
   if (!post || !post.published) {
     notFound();
   }
-
 
   return (
     <div className="mx-auto mt-8 max-w-[700px]">
@@ -98,22 +98,22 @@ export default async function PostPage({ params }: PostPageProps) {
             height={350}
             className="mt-8 rounded-[15px] border object-cover aspect-[2/1]"
           />
-          <div className="flex gap-2 mb-2">
+          {post.description ? (
+            <p className="text-xl mt-4 text-muted-foreground">{post.description}</p>
+          ) : null}
+          <hr className="my-4" />
+          <div className="flex gap-2">
             {post.tags?.map((tag) => (
               <Tag tag={tag} key={tag} />
             ))}
           </div>
-          {post.description ? (
-            <p className="text-xl mt-0 text-muted-foreground">{post.description}</p>
-          ) : null}
-          <hr className="my-4" />
         </div>
       </div>
       <div
-        className="prose dark:prose-invert mb-5 mt-16 mx-6">
+        className="prose dark:prose-invert mb-5 mt-12 mx-6">
         <MDXContent code={post.body} />
       </div>
-
+      <ShareButton text={`Read the post '${post.title}' on Encryptopia Blog:`} url={`${siteConfig.url}/${post.slug}`} />
       <div className="giscus px-2 sm:px-4 md:px-6 lg:px-0">
         <Script id="giscus" src="https://giscus.app/client.js"
           data-repo="paranoia8972/blog"
