@@ -33,23 +33,21 @@ export const generateStaticParams = () => {
 };
 
 export default function TagPage({ params }: TagPageProps) {
-  const { tag } = params;
+  const { tag, page } = params;
   const title = tag.split("-").join(" ");
 
-  const tags = getAllTags(posts);
-  const sortedTags = sortTagsByCount(tags);
+  const currentPage = Number(page) || 1;
 
-  const currentPage = Number(params?.page) || 1;
-  const sortedPosts = sortPosts(posts.filter((post) => post.published));
-
-  const filteredPostsByTag = sortedPosts.filter((post) => post.tags.includes(tag));
-
+  const filteredPostsByTag = posts.filter((post) => post.tags.includes(tag));
   const totalPages = Math.ceil(filteredPostsByTag.length / POSTS_PER_PAGE);
 
   const displayPosts = getPostsByTagSlug(filteredPostsByTag, tag).slice(
     POSTS_PER_PAGE * (currentPage - 1),
     POSTS_PER_PAGE * currentPage
   );
+
+  const tags = getAllTags(posts);
+  const sortedTags = sortTagsByCount(tags);
 
   return (
     <>
@@ -88,10 +86,10 @@ export default function TagPage({ params }: TagPageProps) {
           </div>
         </div>
         <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
-          <QueryPagination
+          {/* <QueryPagination
             totalPages={totalPages}
             className="justify-end mt-4"
-          />
+          /> */}
           <Card className="col-span-12 row-start-3 h-fit sm:col-span-4 sm:col-start-9 sm:row-start-1 mt-16">
             <CardHeader>
               <CardTitle>Tags</CardTitle>
