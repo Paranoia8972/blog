@@ -1,14 +1,13 @@
 import { posts } from "#site/content";
 import { MDXContent } from "@/components/mdx-components";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { siteConfig } from "#config";
 import { Tag } from "@/components/tag";
 import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ShareButton from "@/components/share-button";
+import { Comments } from "@/components/giscus";
 
 interface PostPageProps {
   params: {
@@ -69,6 +68,7 @@ export async function generateStaticParams(): Promise<
 }
 
 
+
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
   if (!post || !post.published) {
@@ -106,6 +106,7 @@ export default async function PostPage({ params }: PostPageProps) {
             {post.tags?.map((tag) => (
               <Tag tag={tag} key={tag} />
             ))}
+            <ShareButton text={`Read the post '${post.title}' on Encryptopia Blog:`} url={`${siteConfig.url}/${post.slug}`} />
           </div>
         </div>
       </div>
@@ -113,25 +114,7 @@ export default async function PostPage({ params }: PostPageProps) {
         className="prose dark:prose-invert mb-5 mt-12 mx-6">
         <MDXContent code={post.body} />
       </div>
-      <ShareButton text={`Read the post '${post.title}' on Encryptopia Blog:`} url={`${siteConfig.url}/${post.slug}`} />
-      <div className="giscus px-2 sm:px-4 md:px-6 lg:px-0">
-        <Script id="giscus" src="https://giscus.app/client.js"
-          data-repo="paranoia8972/blog"
-          data-repo-id="R_kgDOLyBSDQ"
-          data-category="Comments"
-          data-category-id="DIC_kwDOLyBSDc4CfDmi"
-          data-mapping="title"
-          data-strict="1"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="dark"
-          data-lang="en"
-          crossOrigin="anonymous"
-          async>
-        </Script>
-        <noscript className="text-red-500 text-lg">Please enable JavaScript to view the comments powered by giscus.</noscript>
-      </div>
+      <Comments />
     </div>
   );
 }
