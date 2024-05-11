@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next'
-
 import { posts } from '#site/content'
 import { siteConfig } from '#config'
 import { getAllTags, sortTagsByCount } from '@/lib/utils'

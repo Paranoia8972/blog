@@ -1,16 +1,9 @@
 "use client"
 import Script from 'next/script'
-import { useRouter } from 'next/navigation'
 import { useTheme } from 'next-themes'
 
 export function Comments() {
-    const router = useRouter()
-    const { theme, setTheme } = useTheme()
-
-    const handleThemeChange = (newTheme: string) => {
-        setTheme(newTheme)
-        router.replace(router.asPath)
-    }
+    const { theme } = useTheme()
 
     return (
         <>

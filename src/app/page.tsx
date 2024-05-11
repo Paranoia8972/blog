@@ -1,4 +1,4 @@
-import { cn, sortPosts } from "@/lib/utils";
+import { sortPosts } from "@/lib/utils";
 import { posts } from "#site/content";
 import Link from "next/link";
 import { PostItem } from "@/components/post-item";

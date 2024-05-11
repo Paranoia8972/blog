@@ -8,6 +8,7 @@ import { Tag } from "@/components/tag";
 import Image from "next/image";
 import ShareButton from "@/components/share-button";
 import { Comments } from "@/components/giscus";
+import TableOfContents from "@/components/table-of-contents";
 
 interface PostPageProps {
   params: {
@@ -110,6 +111,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </div>
       </div>
+      <TableOfContents mdxContent={post.body} />
       <div
         className="prose dark:prose-invert mb-5 mt-12 mx-6">
         <MDXContent code={post.body} />
