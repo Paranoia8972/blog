@@ -68,7 +68,6 @@ export async function generateStaticParams(): Promise<
 }
 
 
-
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
   if (!post || !post.published) {

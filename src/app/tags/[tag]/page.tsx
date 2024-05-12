@@ -66,6 +66,7 @@ export default function TagPage({ params }: TagPageProps) {
             {
               displayPosts?.length > 0 ? (
                 displayPosts.map((post) => {
+                  if (!post.published) return null;
                   const { slug, date, title, description, tags, img } = post;
                   return (
                     <PostItem
