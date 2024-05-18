@@ -2,19 +2,15 @@ import { posts } from "#site/content";
 import { PostItem } from "@/components/post-item";
 import { Tag } from "@/components/tag";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getAllTags, getPostsByTagSlug, sortTagsByCount, sortPosts } from "@/lib/utils";
-import { QueryPagination } from "@/components/query-pagination";
+import { getAllTags, getPostsByTagSlug, sortTagsByCount } from "@/lib/utils";
 import { slug } from "github-slugger";
 import { Metadata } from "next";
 
 interface TagPageProps {
   params: {
     tag: string;
-    page?: string;
   };
 }
-
-const POSTS_PER_PAGE = 6;
 
 export async function generateMetadata({
   params,
@@ -33,19 +29,10 @@ export const generateStaticParams = () => {
 };
 
 export default function TagPage({ params }: TagPageProps) {
-  const { tag, page } = params;
+  const { tag } = params;
   const title = tag.split("-").join(" ");
 
-  const currentPage = Number(page) || 1;
-
-  const filteredPostsByTag = posts.filter((post) => post.tags.includes(tag));
-  const totalPages = Math.ceil(filteredPostsByTag.length / POSTS_PER_PAGE);
-
-  const displayPosts = getPostsByTagSlug(filteredPostsByTag, tag).slice(
-    POSTS_PER_PAGE * (currentPage - 1),
-    POSTS_PER_PAGE * currentPage
-  );
-
+  const displayPosts = getPostsByTagSlug(posts, tag);
   const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags);
 
@@ -63,10 +50,10 @@ export default function TagPage({ params }: TagPageProps) {
             </div>
           </div>
           <div className="container grid grid-cols-1 justify-center gap-6 px-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
-            {
-              displayPosts?.length > 0 ? (
-                displayPosts.map((post) => {
-                  if (!post.published) return null;
+            {displayPosts?.length > 0 ? (
+              displayPosts
+                .filter((post) => post.published)
+                .map((post) => {
                   const { slug, date, title, description, tags, img } = post;
                   return (
                     <PostItem
@@ -76,14 +63,12 @@ export default function TagPage({ params }: TagPageProps) {
                       title={title}
                       description={description}
                       tags={tags}
-                      img={img}
-                    />
+                      img={img} />
                   );
                 })
-              ) : (
-                <p>Nothing to see here yet</p>
-              )
-            }
+            ) : (
+              <p>Nothing to see here yet</p>
+            )}
           </div>
         </div>
         <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">

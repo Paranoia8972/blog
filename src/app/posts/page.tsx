@@ -46,26 +46,24 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             </div>
           </div>
           <div className="container grid grid-cols-1 justify-center gap-6 px-4 md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
-            {
-              displayPosts?.length > 0 ? (
-                displayPosts.map((post) => {
-                  const { slug, date, title, description, tags, img } = post;
-                  return (
-                    <PostItem
-                      key={slug}
-                      slug={slug}
-                      date={date}
-                      title={title}
-                      description={description}
-                      tags={tags}
-                      img={img}
-                    />
-                  );
-                })
-              ) : (
-                <p>Nothing to see here yet</p>
-              )
-            }
+            {displayPosts?.length > 0 ? (
+              displayPosts.map((post) => {
+                const { slug, date, title, description, tags, img } = post;
+                return (
+                  <PostItem
+                    key={slug}
+                    slug={slug}
+                    date={date}
+                    title={title}
+                    description={description}
+                    tags={tags}
+                    img={img}
+                  />
+                );
+              })
+            ) : (
+              <p>Nothing to see here yet.</p>
+            )}
           </div>
         </div>
         <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">

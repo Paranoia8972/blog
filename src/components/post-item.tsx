@@ -39,7 +39,7 @@ export function PostItem({
               {title}
             </p>
           </Link>
-          <div className="flex flex-wrap gap-2 pl-2 h-[22px]">
+          <div className="flex flex-wrap gap-2 h-[22px]">
             {tags?.map((tag) => (
               <Tag tag={tag} key={tag} />
             ))}

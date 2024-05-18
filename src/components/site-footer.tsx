@@ -1,5 +1,4 @@
 import { siteConfig } from "#config";
-import { Mail } from "lucide-react";
 import { Icons } from "./icons";
 import Link from "next/link";
 
@@ -8,9 +7,9 @@ export function SiteFooter() {
     <footer>
       <div className="mb-6 mt-14 flex flex-col items-center">
         <div className="mb-3 flex space-x-4">
-          <Link target="_blank" rel="noreferrer" href={`mailto:` + siteConfig.email}>
-            <span className="sr-only">Mail</span>
-            <Mail className="h-6 w-6" />
+          <Link target="_blank" rel="noreferrer" href={siteConfig.links.feed}>
+            <span className="sr-only">RSS</span>
+            <Icons.rss className="h-6 w-6" />
           </Link>
           <Link target="_blank" rel="noreferrer" href={siteConfig.links.twitter}>
             <span className="sr-only">Twitter</span>

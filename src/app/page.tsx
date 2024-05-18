@@ -1,10 +1,9 @@
 import { sortPosts } from "@/lib/utils";
 import { posts } from "#site/content";
-import Link from "next/link";
 import { PostItem } from "@/components/post-item";
 
 export default function Home() {
-  const latestPosts = sortPosts(posts).slice(0, 6);
+  const latestPosts = sortPosts(posts).slice(0, 7);
   return (
     <div className="mx-auto py-6 lg:py-10">
       <div className="mx-auto flex-[5]">

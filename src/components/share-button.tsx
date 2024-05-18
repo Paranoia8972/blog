@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaXTwitter, FaLinkedin } from "react-icons/fa6";
 import { FaRedditAlien } from "react-icons/fa";
+import { IoLink } from "react-icons/io5";
 
 interface ShareButtonProps {
     text: string;
@@ -9,7 +10,7 @@ interface ShareButtonProps {
 }
 
 const ShareButton: React.FC<ShareButtonProps> = ({ text, url }) => {
-    const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+    const twitterShareUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
     const redditShareUrl = `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`;
     const linkedinShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`;
 
@@ -26,6 +27,9 @@ const ShareButton: React.FC<ShareButtonProps> = ({ text, url }) => {
                 <Link href={linkedinShareUrl} target="_blank" rel="noopener noreferrer" className="pl-1">
                     <FaLinkedin className="size-5 text-slate-600 hover:text-slate-600/80" />
                 </Link>
+                {/* <Link href={""} target="_blank" rel="noopener noreferrer" className="pl-1">
+                    <IoLink className="size-5 text-slate-600 hover:text-slate-600/80" />
+                </Link> */}
             </div>
         </div>
     );
