@@ -8,11 +8,7 @@ export const siteConfig = {
     twitter: "https://twitter.com/paranoia8972",
     github: "https://github.com/Paranoia8972",
     personalSite: "https://encryptopia.dev",
-<<<<<<< HEAD
     feed: "https://blog.encryptopia.dev/feed.xml",
-=======
-    feed: "https://encryptopia.dev/feed.xml",
->>>>>>> bc9fbbf (Change giscus theme according to website theme)
   },
 };
 
