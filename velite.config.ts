@@ -2,6 +2,7 @@ import { defineConfig, defineCollection, s } from "velite";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { transformerCopyButton } from "@rehype-pretty/transformers";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -39,14 +40,13 @@ export default defineConfig({
     remarkPlugins: [],
     rehypePlugins: [
       rehypeSlug,
-      [rehypePrettyCode, {
-        theme: {
-          dark: "github-dark-dimmed",
-          light: "github-light",
-        },
-      }],
+      [rehypePrettyCode, { theme: "github-dark-dimmed" }],
       [
         rehypeAutolinkHeadings,
+        transformerCopyButton({
+          visibility: "always",
+          feedbackDuration: 3_000,
+        }),
         {
           behavior: "wrap",
           properties: {

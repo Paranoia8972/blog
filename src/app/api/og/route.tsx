@@ -35,9 +35,13 @@ export async function GET(req: NextRequest) {
             <div tw="flex text-[80px] font-bold text-[50px]">{heading}</div>
           </div>
           <div tw="flex items-center w-full justify-between">
-            <div tw="flex text-xl">{siteConfig.url.replace("https://", "")}</div>
+            <div tw="flex text-xl">
+              {siteConfig.url.replace("https://", "")}
+            </div>
             <div tw="flex items-center text-xl">
-              <div tw="flex ml-2">{siteConfig.links.github.replace("https://", "")}</div>
+              <div tw="flex ml-2">
+                {siteConfig.links.github.replace("https://", "")}
+              </div>
             </div>
           </div>
         </div>

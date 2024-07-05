@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? siteConfig.url),
   alternates: {
     types: {
-      'application/rss+xml': siteConfig.url + '/feed.xml',
+      "application/rss+xml": siteConfig.url + "/feed.xml",
     },
-  }
+  },
 };
 
 export const viewport: Viewport = {
@@ -38,7 +38,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          inter.variable
+          inter.variable,
         )}
       >
         <Providers>
@@ -49,7 +49,11 @@ export default function RootLayout({
           </div>
         </Providers>
       </body>
-      <Script defer src="https://stats.encryptopia.dev/script.js" data-website-id="d9e90069-7fed-42d9-9b37-a3e0979b3681"></Script>
+      <Script
+        defer
+        src="https://stats.encryptopia.dev/script.js"
+        data-website-id="d9e90069-7fed-42d9-9b37-a3e0979b3681"
+      ></Script>
     </html>
   );
 }

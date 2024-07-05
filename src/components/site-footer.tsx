@@ -11,7 +11,11 @@ export function SiteFooter() {
             <span className="sr-only">RSS</span>
             <Icons.rss className="h-6 w-6" />
           </Link>
-          <Link target="_blank" rel="noreferrer" href={siteConfig.links.twitter}>
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={siteConfig.links.twitter}
+          >
             <span className="sr-only">Twitter</span>
             <Icons.twitter className="h-6 w-6" />
           </Link>
@@ -24,13 +28,16 @@ export function SiteFooter() {
           <Link href={siteConfig.links.personalSite} target="_blank">
             {siteConfig.author}
           </Link>
-          &nbsp;
-          &middot;
-          <Link href="https://encryptopia.dev/impressum" target="_blank" rel="noreferrer">
+          &nbsp; &middot;
+          <Link
+            href="https://encryptopia.dev/impressum"
+            target="_blank"
+            rel="noreferrer"
+          >
             Imprint
           </Link>
         </div>
       </div>
-    </footer >
+    </footer>
   );
 }

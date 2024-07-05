@@ -38,7 +38,9 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <div className="mx-auto flex-[5]">
           <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
             <div>
-              <h1 className="inline-block font-black text-4xl lg:text-5xl">Posts</h1>
+              <h1 className="inline-block font-black text-4xl lg:text-5xl">
+                Posts
+              </h1>
               <p className="text-xl text-muted-foreground">
                 My weird knowledge, noted down.
               </p>

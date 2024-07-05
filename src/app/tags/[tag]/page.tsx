@@ -2,7 +2,12 @@ import { posts } from "#site/content";
 import { PostItem } from "@/components/post-item";
 import { Tag } from "@/components/tag";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getAllTags, getPostsByTagSlug, sortPosts, sortTagsByCount } from "@/lib/utils";
+import {
+  getAllTags,
+  getPostsByTagSlug,
+  sortPosts,
+  sortTagsByCount,
+} from "@/lib/utils";
 import { slug } from "github-slugger";
 import { Metadata } from "next";
 import { QueryPagination } from "@/components/query-pagination";
@@ -47,7 +52,9 @@ export default function TagPage({ params }: TagPageProps) {
         <div className="mx-auto flex-[5]">
           <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
             <div>
-              <h1 className="inline-block font-black text-4xl lg:text-5xl">{title}</h1>
+              <h1 className="inline-block font-black text-4xl lg:text-5xl">
+                {title}
+              </h1>
               <p className="text-xl text-muted-foreground">
                 Posts on the topic of {title}.
               </p>
@@ -68,7 +75,8 @@ export default function TagPage({ params }: TagPageProps) {
                       title={title}
                       description={description}
                       tags={tags}
-                      img={img} />
+                      img={img}
+                    />
                   );
                 })
             ) : (
@@ -87,7 +95,12 @@ export default function TagPage({ params }: TagPageProps) {
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
               {sortedTags?.map((t) => (
-                <Tag tag={t} key={t} count={tags[t]} current={slug(t) === tag} />
+                <Tag
+                  tag={t}
+                  key={t}
+                  count={tags[t]}
+                  current={slug(t) === tag}
+                />
               ))}
             </CardContent>
           </Card>

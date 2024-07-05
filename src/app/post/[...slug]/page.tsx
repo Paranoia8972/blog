@@ -8,6 +8,7 @@ import { Tag } from "@/components/tag";
 import Image from "next/image";
 import ShareButton from "@/components/share-button";
 import { Comments } from "@/components/giscus";
+import PrevNextPost from "@/components/prevnextpost";
 
 interface PostPageProps {
   params: {
@@ -67,7 +68,6 @@ export async function generateStaticParams(): Promise<
   return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
-
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
   if (!post || !post.published) {
@@ -95,23 +95,26 @@ export default async function PostPage({ params }: PostPageProps) {
             alt={post.title}
             width={700}
             height={350}
-            className="mt-8 rounded-[15px] border object-cover aspect-[2/1]"
+            className="mt-8 aspect-[2/1] rounded-[15px] border object-cover"
           />
           {post.description ? (
-            <p className="text-xl mt-4 text-muted-foreground">{post.description}</p>
+            <p className="mt-4 text-xl text-muted-foreground">
+              {post.description}
+            </p>
           ) : null}
           <hr className="my-4" />
           <div className="flex gap-2">
-            {post.tags?.map((tag) => (
-              <Tag tag={tag} key={tag} />
-            ))}
-            <ShareButton text={`Read the post '${post.title}' on Encryptopia Blog:`} url={`${siteConfig.url}/${post.slug}`} />
+            {post.tags?.map((tag) => <Tag tag={tag} key={tag} />)}
+            <ShareButton
+              text={`Read the post '${post.title}' on Encryptopia Blog:`}
+              url={`${siteConfig.url}/${post.slug}`}
+            />
           </div>
         </div>
       </div>
-      <div
-        className="prose dark:prose-invert mb-5 mt-12 mx-6">
+      <div className="prose mx-6 mb-5 mt-12 dark:prose-invert">
         <MDXContent code={post.body} />
+        <PrevNextPost posts={posts} post={post} />
       </div>
       <Comments />
     </div>
