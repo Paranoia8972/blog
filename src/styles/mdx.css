@@ -3,7 +3,7 @@
 }
 
 [data-rehype-pretty-code-figure] code {
-  @apply text-sm !leading-loose md:text-base border-0 p-0;
+  @apply border-0 p-0 text-sm !leading-loose md:text-base;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
@@ -39,9 +39,9 @@
 }
 
 [data-rehype-pretty-code-figure] figcaption {
-  @apply text-sm text-gray-300 bg-slate-700 p-2 font-medium rounded-t;
+  @apply rounded-t bg-[#242737] p-2 text-sm font-medium text-gray-300;
 }
 
-[data-rehype-pretty-code-figure] figcaption+pre {
-  @apply rounded-none rounded-b ;
+[data-rehype-pretty-code-figure] figcaption + pre {
+  @apply rounded-none rounded-b;
 }

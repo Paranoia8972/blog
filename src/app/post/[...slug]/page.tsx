@@ -96,6 +96,8 @@ export default async function PostPage({ params }: PostPageProps) {
             width={700}
             height={350}
             className="mt-8 aspect-[2/1] rounded-[15px] border object-cover"
+            placeholder="blur"
+            blurDataURL={post.img}
           />
           {post.description ? (
             <p className="mt-4 text-xl text-muted-foreground">

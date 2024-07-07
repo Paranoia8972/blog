@@ -4,6 +4,7 @@ import Link from "next/link";
 interface Post {
   slug: string;
   title: string;
+  published: boolean;
 }
 
 interface PrevNextPostProps {
@@ -19,7 +20,7 @@ const PrevNextPost: React.FC<PrevNextPostProps> = ({ posts, post }) => {
 
   return (
     <div className="mx-auto flex w-full max-w-2xl items-center justify-between px-4 py-8 md:px-0">
-      {nextPost ? (
+      {nextPost && nextPost.published ? (
         <div className="flex items-center space-x-4">
           <Link
             href={`/${nextPost.slug}`}
@@ -35,7 +36,7 @@ const PrevNextPost: React.FC<PrevNextPostProps> = ({ posts, post }) => {
       ) : (
         <div></div>
       )}
-      {prevPost ? (
+      {prevPost && prevPost.published ? (
         <div className="flex items-center space-x-4">
           <div className="text-right">
             <h3 className="text-lg font-medium">{prevPost.title}</h3>

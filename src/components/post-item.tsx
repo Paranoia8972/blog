@@ -19,20 +19,20 @@ export function PostItem({ slug, title, date, tags, img }: PostItemProps) {
         <Image
           src={img}
           alt={title}
-          className="cursor-pointer rounded-xl border object-cover aspect-video"
+          className="aspect-video cursor-pointer rounded-xl border object-cover"
           width={400}
           height={200}
+          blurDataURL={img}
+          placeholder="blur"
         />
       </Link>
       <div className="px-4">
-        <div className="flex flex-wrap justify-between mt-2 items-center">
+        <div className="mt-2 flex flex-wrap items-center justify-between">
           <Link href={"/" + slug}>
             <p className="cursor-pointer text-2xl font-bold">{title}</p>
           </Link>
-          <div className="flex flex-wrap gap-2 h-[22px]">
-            {tags?.map((tag) => (
-              <Tag tag={tag} key={tag} />
-            ))}
+          <div className="flex h-[22px] flex-wrap gap-2">
+            {tags?.map((tag) => <Tag tag={tag} key={tag} />)}
           </div>
         </div>
         <p className="mt-1 text-sm">
