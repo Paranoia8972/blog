@@ -7,6 +7,13 @@ import {
   FireIcon,
   InformationCircleIcon,
 } from "@heroicons/react/20/solid";
+import {
+  CircleAlert,
+  TriangleAlert,
+  Flame,
+  Lightbulb,
+  Info,
+} from "lucide-react";
 
 interface CalloutProps {
   children?: ReactNode;
@@ -15,11 +22,11 @@ interface CalloutProps {
 }
 
 const calloutIcon = {
-  info: <ExclamationCircleIcon className="mr-2 h-6 w-6" />,
-  danger: <FireIcon className="mr-2 h-6 w-6" />,
-  caution: <ExclamationTriangleIcon className="mr-2 h-6 w-6" />,
-  tip: <LightBulbIcon className="mr-2 h-6 w-6" />,
-  note: <InformationCircleIcon className="mr-2 h-6 w-6" />,
+  info: <CircleAlert className="mr-2 h-6 w-6" />,
+  danger: <Flame className="mr-2 h-6 w-6" />,
+  caution: <TriangleAlert className="mr-2 h-6 w-6" />,
+  tip: <Lightbulb className="mr-2 h-6 w-6" />,
+  note: <Info className="mr-2 h-6 w-6" />,
 };
 
 export function Callout({
