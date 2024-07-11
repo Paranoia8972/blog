@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
 interface Post {
   slug: string;
@@ -21,34 +23,23 @@ const PrevNextPost: React.FC<PrevNextPostProps> = ({ posts, post }) => {
   return (
     <div className="mx-auto flex w-full max-w-2xl items-center justify-between px-4 py-8 md:px-0">
       {nextPost && nextPost.published ? (
-        <div className="flex items-center space-x-4">
-          <Link
-            href={`/${nextPost.slug}`}
-            className="rounded-full bg-muted p-2 transition-colors hover:bg-muted-foreground/20"
-            prefetch={false}
-          >
-            <ChevronLeftIcon className="h-5 w-5 text-muted-foreground" />
-          </Link>
-          <div>
-            <h3 className="text-lg font-medium">{nextPost.title}</h3>
-          </div>
-        </div>
+        <Link href={`/${nextPost.slug}`} prefetch={false}>
+          <Button variant="ghost">
+            <ChevronLeft className="h-4 w-4" />
+            &nbsp;&nbsp;
+            {nextPost.title}
+          </Button>
+        </Link>
       ) : (
         <div></div>
       )}
       {prevPost && prevPost.published ? (
-        <div className="flex items-center space-x-4">
-          <div className="text-right">
-            <h3 className="text-lg font-medium">{prevPost.title}</h3>
-          </div>
-          <Link
-            href={`/${prevPost.slug}`}
-            className="rounded-full bg-muted p-2 transition-colors hover:bg-muted-foreground/20"
-            prefetch={false}
-          >
-            <ChevronRightIcon className="h-5 w-5 text-muted-foreground" />
-          </Link>
-        </div>
+        <Link href={`/${prevPost.slug}`} prefetch={false}>
+          <Button variant="ghost">
+            {prevPost.title}&nbsp;&nbsp;
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
       ) : (
         <div></div>
       )}
@@ -57,45 +48,3 @@ const PrevNextPost: React.FC<PrevNextPostProps> = ({ posts, post }) => {
 };
 
 export default PrevNextPost;
-
-function ChevronLeftIcon(
-  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
-) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m15 18-6-6 6-6" />
-    </svg>
-  );
-}
-
-function ChevronRightIcon(
-  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
-) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  );
-}
