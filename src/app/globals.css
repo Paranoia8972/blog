@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -50,9 +49,6 @@
   }
 }
 
-
-
-
 @layer base {
   * {
     @apply border-border;
@@ -78,8 +74,4 @@
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: hsl(var(--muted));
-}
-
-body {
-  overflow-y: scroll;
 }

@@ -4,7 +4,7 @@ import { Clipboard, Check } from "lucide-react";
 
 const CodeBlockWithCopy = ({ children }: { children: React.ReactNode }) => {
   const [copySuccess, setCopySuccess] = useState<React.ReactNode>(null);
-  const textRef = useRef<HTMLPreElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   const copyToClipboard = () => {
     if (textRef.current) {
@@ -21,16 +21,11 @@ const CodeBlockWithCopy = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <div style={{ position: "relative" }}>
-      <pre ref={textRef}>{children}</pre>
+    <div ref={textRef} className="relative flex items-start">
+      <div className="over flow-x-auto flex-grow">{children}</div>
       <button
         onClick={copyToClipboard}
-        className="absolute rounded-md bg-gray-800 p-1 transition hover:bg-gray-800/50"
-        style={{
-          position: "absolute",
-          right: "10px",
-          top: "10px",
-        }}
+        className="absolute right-[10px] top-0 z-10 rounded-md bg-gray-800 p-1 transition"
       >
         {copySuccess ? (
           <Check className="size-4" />

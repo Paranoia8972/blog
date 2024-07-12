@@ -25,7 +25,7 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
         {children.map((child) => (
           <Badge
             key={child.props.id}
-            variant={activeTab === child.props.id ? "default" : "secondary"}
+            variant={activeTab === child.props.id ? "outline" : "secondary"}
             className="-mb-32 ml-2 mt-2 rounded-md hover:cursor-pointer"
             onClick={() => setActiveTab(child.props.id)}
           >

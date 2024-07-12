@@ -2,15 +2,9 @@ import { posts } from "#site/content";
 import { PostItem } from "@/components/post-item";
 import { Tag } from "@/components/tag";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  getAllTags,
-  getPostsByTagSlug,
-  sortPosts,
-  sortTagsByCount,
-} from "@/lib/utils";
+import { getAllTags, getPostsByTagSlug, sortTagsByCount } from "@/lib/utils";
 import { slug } from "github-slugger";
 import { Metadata } from "next";
-import { QueryPagination } from "@/components/query-pagination";
 
 interface TagPageProps {
   params: {
@@ -29,19 +23,11 @@ export async function generateMetadata({
   };
 }
 
-const POSTS_PER_PAGE = 6;
-
 export default function TagPage({ params }: TagPageProps) {
   const { tag } = params;
   const title = tag.split("-").join(" ");
 
   const displayPosts = getPostsByTagSlug(posts, tag);
-
-  const allPosts = getPostsByTagSlug(posts, tag);
-  const sortedPosts = sortPosts(allPosts);
-  const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
-
-  const currentPage = Number(params.page) || 1;
 
   const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags);
@@ -52,7 +38,7 @@ export default function TagPage({ params }: TagPageProps) {
         <div className="mx-auto flex-[5]">
           <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
             <div>
-              <h1 className="inline-block font-black text-4xl lg:text-5xl">
+              <h1 className="inline-block text-4xl font-black lg:text-5xl">
                 {title}
               </h1>
               <p className="text-xl text-muted-foreground">
@@ -85,11 +71,7 @@ export default function TagPage({ params }: TagPageProps) {
           </div>
         </div>
         <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
-          <QueryPagination
-            totalPages={totalPages}
-            className="justify-end mt-4"
-          />
-          <Card className="col-span-12 row-start-3 h-fit sm:col-span-4 sm:col-start-9 sm:row-start-1 mt-16">
+          <Card className="col-span-12 row-start-3 mt-16 h-fit sm:col-span-4 sm:col-start-9 sm:row-start-1">
             <CardHeader>
               <CardTitle>Tags</CardTitle>
             </CardHeader>
