@@ -1,2 +1,4 @@
 user-agent: *
 allow: *
+
+sitemap: https://blog.encryptopia.dev/sitemap.xml
