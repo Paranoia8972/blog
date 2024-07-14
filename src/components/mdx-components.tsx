@@ -1,9 +1,11 @@
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import * as runtime from "react/jsx-runtime";
 import { Callout } from "@/components/mdx/callout";
 import { cn } from "@/lib/utils";
 import { Tab, Tabs } from "@/components/mdx/tabs";
-import CodeBlockWithCopy from "@/components/mdx/copy";
+import { CopyCodeBlock, CopyInlineCode } from "@/components/mdx/copy";
 import { Disclosure } from "@/components/mdx/disclosure";
 
 const useMDXComponent = (code: string) => {
@@ -16,8 +18,9 @@ const components = {
   Callout,
   Tab,
   Tabs,
-  code: CodeBlockWithCopy,
   Disclosure,
+  // code: CopyInlineCode,
+  pre: CopyCodeBlock,
 };
 
 interface MdxProps {

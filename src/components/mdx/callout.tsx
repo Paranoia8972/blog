@@ -1,13 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 import {
-  LightBulbIcon,
-  ExclamationCircleIcon,
-  ExclamationTriangleIcon,
-  FireIcon,
-  InformationCircleIcon,
-} from "@heroicons/react/20/solid";
-import {
   CircleAlert,
   TriangleAlert,
   Flame,
