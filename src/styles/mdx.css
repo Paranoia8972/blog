@@ -45,3 +45,8 @@
 [data-rehype-pretty-code-figure] figcaption + pre {
   @apply rounded-none rounded-b border-b border-x border-[1px] border-[#1e293b];
 } 
+
+.prose code::before,
+.prose code::after {
+  content: '';
+}

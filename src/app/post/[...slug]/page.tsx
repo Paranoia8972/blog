@@ -149,7 +149,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </div>
       </div>
-      <div className="prose mx-6 mb-5 mt-12 dark:prose-invert">
+      <div className="prose mx-6 mb-5 mt-12 dark:prose-invert prose-code:relative prose-code:rounded prose-code:bg-muted prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:font-mono prose-code:text-sm prose-code:font-semibold">
         <MDXContent code={post.body} />
         <PrevNextPost posts={posts} post={post} />
       </div>
