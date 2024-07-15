@@ -39,9 +39,9 @@
 }
 
 [data-rehype-pretty-code-figure] figcaption {
-  @apply rounded-t bg-[#0b192d] p-2 text-sm font-medium text-gray-300 border-t border-x border-[1px] font-mono;
+  @apply rounded-t bg-[#0b192d] p-2 text-sm font-medium text-gray-300 border-t border-x border-[1px] font-mono border-[#1e293b];
 }
 
 [data-rehype-pretty-code-figure] figcaption + pre {
-  @apply rounded-none rounded-b border-b border-x border-[1px];
-}
+  @apply rounded-none rounded-b border-b border-x border-[1px] border-[#1e293b];
+} 

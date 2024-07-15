@@ -21,12 +21,16 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
 
   return (
     <>
-      <div className="mt-[2em] rounded-t-md bg-[#0b192d] text-sm font-medium text-gray-300">
+      <div className="mt-[2em] rounded-t-md bg-gray-100 text-sm font-medium text-gray-300 dark:bg-[#0b192d]">
         {children.map((child) => (
           <Badge
             key={child.props.id}
             variant={activeTab === child.props.id ? "default" : "outline"}
-            className="my-2 ml-2 rounded-md border-0 hover:cursor-pointer"
+            className={`my-2 ml-2 rounded border-0 hover:cursor-pointer ${
+              activeTab === child.props.id
+                ? "bg-gray-300 text-black dark:bg-slate-500 dark:text-slate-950"
+                : "bg-transparent dark:text-slate-400"
+            }`}
             onClick={() => setActiveTab(child.props.id)}
           >
             {child.props.title}

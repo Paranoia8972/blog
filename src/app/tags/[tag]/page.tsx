@@ -18,7 +18,7 @@ export async function generateMetadata({
 }: TagPageProps): Promise<Metadata> {
   const { tag } = params;
   return {
-    title: tag,
+    title: `Topic ${tag} | ECTY Blog`,
     description: `Posts on the topic of ${tag}`,
   };
 }

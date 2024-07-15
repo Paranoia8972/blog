@@ -38,11 +38,11 @@ export async function generateMetadata({
   ogSearchParams.set("title", post.title);
 
   return {
-    title: post.title,
+    title: `Post ${post.title} | ECTY Blog`,
     description: post.description,
     authors: { name: siteConfig.author },
     openGraph: {
-      title: `Encryptopia Blog: ${post.title}`,
+      title: `Post ${post.title} | ECTY Blog`,
       description: post.description,
       type: "article",
       url: post.slug,
@@ -57,7 +57,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `Encryptopia Blog: ${post.title}`,
+      title: `ECTY Blog: ${post.title}`,
       description: post.description,
       images: [`/api/og?${ogSearchParams.toString()}`],
     },
@@ -143,7 +143,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <div className="flex gap-2">
             {post.tags?.map((tag) => <Tag tag={tag} key={tag} />)}
             <ShareButton
-              text={`Read the post '${post.title}' on Encryptopia Blog:`}
+              text={`Read the post '${post.title}' by @paranoia8972 on Encryptopia Blog:`}
               url={`${siteConfig.url}/${post.slug}`}
             />
           </div>

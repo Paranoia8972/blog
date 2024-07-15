@@ -7,7 +7,7 @@ import { getAllTags, sortPosts, sortTagsByCount } from "@/lib/utils";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Encryptopia Blog",
+  title: "Posts | ECTY Blog",
   description: "My wierd knowledge, noted down.",
 };
 
@@ -26,7 +26,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   const displayPosts = sortedPosts.slice(
     POSTS_PER_PAGE * (currentPage - 1),
-    POSTS_PER_PAGE * currentPage
+    POSTS_PER_PAGE * currentPage,
   );
 
   const tags = getAllTags(posts);
@@ -38,7 +38,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <div className="mx-auto flex-[5]">
           <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
             <div>
-              <h1 className="inline-block font-black text-4xl lg:text-5xl">
+              <h1 className="inline-block text-4xl font-black lg:text-5xl">
                 Posts
               </h1>
               <p className="text-xl text-muted-foreground">
@@ -71,16 +71,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <div className="container justify-center gap-6 px-4 md:gap-8 lg:gap-10 xl:px-10 xl:py-10 2xl:px-24 2xl:py-5">
           <QueryPagination
             totalPages={totalPages}
-            className="justify-end mt-4"
+            className="mt-4 justify-end"
           />
-          <Card className="col-span-12 row-start-3 h-fit sm:col-span-4 sm:col-start-9 sm:row-start-1 mt-16">
+          <Card className="col-span-12 row-start-3 mt-16 h-fit sm:col-span-4 sm:col-start-9 sm:row-start-1">
             <CardHeader>
               <CardTitle>Tags</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
-              {sortedTags?.map((t) => (
-                <Tag tag={t} key={t} count={tags[t]} />
-              ))}
+              {sortedTags?.map((t) => <Tag tag={t} key={t} count={tags[t]} />)}
             </CardContent>
           </Card>
         </div>

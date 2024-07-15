@@ -4,6 +4,7 @@ import { PostItem } from "@/components/post-item";
 
 export default function Home() {
   const latestPosts = sortPosts(posts).slice(0, 6);
+
   return (
     <div className="mx-auto py-6 lg:py-10">
       <div className="mx-auto flex-[5]">

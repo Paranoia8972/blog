@@ -40,8 +40,14 @@ export default defineConfig({
     remarkPlugins: [],
     rehypePlugins: [
       rehypeSlug,
-      [rehypePrettyCode, { 
-        theme: JSON.parse(fs.readFileSync("./src/styles/tailwind-dark.json", "utf-8")), }],
+      [
+        rehypePrettyCode,
+        {
+          theme: JSON.parse(
+            fs.readFileSync("./src/styles/tailwind-dark.json", "utf-8"),
+          ),
+        },
+      ],
       [
         rehypeAutolinkHeadings,
         {
