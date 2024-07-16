@@ -46,6 +46,10 @@
   @apply rounded-none rounded-b border-b border-x border-[1px] border-[#1e293b];
 } 
 
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply border-l-2 border-l-blue-400 rounded-r-sm pt-[2px] pb-[2px];
+}
+
 .prose code::before,
 .prose code::after {
   content: '';
