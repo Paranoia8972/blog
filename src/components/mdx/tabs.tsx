@@ -28,8 +28,8 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
             variant={activeTab === child.props.id ? "default" : "outline"}
             className={`my-2 ml-2 rounded border-0 hover:cursor-pointer ${
               activeTab === child.props.id
-                ? "bg-gray-300 text-black dark:bg-slate-500 dark:text-slate-950"
-                : "bg-transparent dark:text-slate-400"
+                ? "bg-gray-300 text-black hover:bg-gray-300 dark:bg-slate-500 dark:text-slate-950"
+                : "bg-transparent text-gray-600 transition hover:text-gray-800 dark:text-slate-400 dark:hover:text-slate-500"
             }`}
             onClick={() => setActiveTab(child.props.id)}
           >
