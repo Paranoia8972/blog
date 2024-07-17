@@ -8,8 +8,8 @@ import { Tag } from "@/components/tag";
 import Image from "next/image";
 import ShareButton from "@/components/share-button";
 import { Comments } from "@/components/giscus";
-import PrevNextPost from "@/components/prevnextpost";
 import { Skeleton } from "@/components/ui/skeleton";
+import PrevNextPost from "@/components/prevnextpost";
 
 interface PostPageProps {
   params: {
@@ -151,7 +151,7 @@ export default async function PostPage({ params }: PostPageProps) {
       </div>
       <div className="prose mx-6 mb-5 mt-12 dark:prose-invert prose-code:relative prose-code:rounded prose-code:bg-muted prose-code:px-[0.3rem] prose-code:py-[0.2rem] prose-code:font-mono prose-code:text-sm prose-code:font-semibold">
         <MDXContent code={post.body} />
-        <PrevNextPost posts={posts} post={post} />
+        <PrevNextPost currentSlug={post.slug} />
       </div>
       <Comments />
     </div>

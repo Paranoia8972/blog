@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export function Comments() {
-  const { theme, resolvedTheme } = useTheme(); // Use resolvedTheme for system theme
+  const { theme, resolvedTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

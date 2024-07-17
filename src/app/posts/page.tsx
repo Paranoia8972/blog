@@ -16,6 +16,7 @@ const POSTS_PER_PAGE = 6;
 interface BlogPageProps {
   searchParams: {
     page?: string;
+    search?: string;
   };
 }
 
