@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'content/post/**'
+  workflow_dispatch:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
