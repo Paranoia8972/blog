@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Clipboard, Check } from "lucide-react";
 
 const CopyButton = ({
@@ -37,7 +37,7 @@ const CopyButton = ({
           {copySuccess ? (
             <Check className="size-4 text-green-600 dark:text-green-400" />
           ) : (
-            <Clipboard className="size-4" />
+            <Clipboard className="size-4 text-gray-600" />
           )}
         </button>
       )}
