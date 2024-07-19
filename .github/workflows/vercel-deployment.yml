@@ -2,6 +2,7 @@ name: Vercel Deployment Success Trigger
 
 on:
   deployment_status:
+  workflow_dispatch:
 
 jobs:
   dispatch-custom-event:
