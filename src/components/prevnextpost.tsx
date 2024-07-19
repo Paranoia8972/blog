@@ -21,20 +21,20 @@ const PrevNextPost: React.FC<PrevNextPostProps> = ({ currentSlug }) => {
   return (
     <>
       <div className="mx-auto flex w-full max-w-2xl items-center justify-between px-4 py-8 md:px-0">
-        {nextPost && (
-          <Link href={`/${nextPost.slug}`}>
+        {prevPost && (
+          <Link href={`/${prevPost.slug}`} prefetch={false}>
             <Button variant="ghost">
               <ChevronLeft className="h-4 w-4" />
               &nbsp;&nbsp;
-              {nextPost.title}
+              {prevPost.title}
             </Button>
           </Link>
         )}
         <div className="flex-grow"></div>
-        {prevPost && (
-          <Link href={`/${prevPost.slug}`} prefetch={false}>
+        {nextPost && (
+          <Link href={`/${nextPost.slug}`}>
             <Button variant="ghost">
-              {prevPost.title}&nbsp;&nbsp;
+              {nextPost.title}&nbsp;&nbsp;
               <ChevronRight className="h-4 w-4" />
             </Button>
           </Link>
