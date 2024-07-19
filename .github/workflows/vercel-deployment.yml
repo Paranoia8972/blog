@@ -1,0 +1,17 @@
+name: Vercel Deployment Success Trigger
+
+on:
+  deployment_status:
+
+jobs:
+  dispatch-custom-event:
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch Event to Paranoia8972/Paranoia8972
+        run: |
+          curl -X POST \
+          -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/Paranoia8972/Paranoia8972/dispatches \
+          -d '{"event_type": "vercel-deployment-success"}'
