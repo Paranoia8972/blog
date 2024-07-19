@@ -11,5 +11,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          repository: Paranoia8972/blog
+          repository: Paranoia8972/Paranoia8972
           event-type: new-post
