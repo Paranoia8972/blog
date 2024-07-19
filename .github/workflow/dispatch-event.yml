@@ -1,0 +1,15 @@
+name: Trigger Dispatch Event
+on:
+  push:
+    paths:
+      - 'content/post/**'
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repository: Paranoia8972/blog
+          event-type: new-post
