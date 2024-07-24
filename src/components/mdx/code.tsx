@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Clipboard, Check } from "lucide-react";
 
 const CopyButton = ({
@@ -45,25 +45,37 @@ const CopyButton = ({
   );
 };
 
-const CopyCodeBlock: React.FC<React.HTMLProps<HTMLPreElement>> = (props) => {
-  const isCodeTag =
-    React.Children.count(props.children) === 1 &&
-    React.isValidElement(React.Children.toArray(props.children)[0]) &&
-    (React.Children.toArray(props.children)[0] as React.ReactElement).type ===
-      "code";
-
-  if (isCodeTag) {
-    const codeElement = React.Children.toArray(
-      props.children,
-    )[0] as React.ReactElement;
-    return (
-      <pre {...props}>
-        <CopyButton {...codeElement.props} />
-      </pre>
-    );
+const CopyCodeBlock: React.FC<
+  React.HTMLProps<HTMLPreElement> & {
+    "data-language"?: string;
   }
+> = (props) => {
+  const { "data-language": language, children, ...rest } = props;
 
-  return <pre {...props} />;
+  const isCodeTag =
+    React.Children.count(children) === 1 &&
+    React.isValidElement(React.Children.toArray(children)[0]) &&
+    (React.Children.toArray(children)[0] as React.ReactElement).type === "code";
+
+  return (
+    <>
+      <pre {...rest}>
+        {isCodeTag ? (
+          <>
+            {React.Children.map(children, (child) =>
+              React.isValidElement(child) ? (
+                <CopyButton {...child.props} />
+              ) : (
+                child
+              ),
+            )}
+          </>
+        ) : (
+          children
+        )}
+      </pre>
+    </>
+  );
 };
 
 const CopyInlineCode = ({ children }: { children: React.ReactNode }) => {
