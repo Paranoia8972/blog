@@ -40,7 +40,11 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
       <div className="my-0 rounded-b-md border border-[#0b192d] bg-[#1e293b]">
         {children.map((child) => {
           if (child.props.id === activeTab) {
-            return <div key={child.props.id}>{child}</div>;
+            return (
+              <div key={child.props.id} className="-mb-[32px] -mt-[32px]">
+                {child}
+              </div>
+            );
           }
           return null;
         })}
