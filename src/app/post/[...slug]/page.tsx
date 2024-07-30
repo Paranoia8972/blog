@@ -8,7 +8,6 @@ import { Tag } from "@/components/tag";
 import Image from "next/image";
 import ShareButton from "@/components/share-button";
 import { Comments } from "@/components/giscus";
-import { Skeleton } from "@/components/ui/skeleton";
 import PrevNextPost from "@/components/prevnextpost";
 
 interface PostPageProps {
@@ -74,40 +73,6 @@ export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostFromParams(params);
   if (!post || !post.published) {
     notFound();
-  }
-
-  if (params.loading) {
-    return (
-      <div className="mx-auto mt-8 max-w-[700px]">
-        <div className="flex items-center gap-[50px] px-2 sm:px-4 md:px-6 lg:px-0">
-          <div className="flex-[1]">
-            <div>
-              <Skeleton className="mx-auto h-[40px] max-w-[350px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl" />
-              <Skeleton className="mx-auto mt-2 h-6 max-w-[150px]" />
-            </div>
-            <Skeleton className="mt-8 aspect-[2/1] rounded-[15px] border object-cover" />
-            <Skeleton className="mt-4 h-6 w-3/4" />
-            <hr className="my-4" />
-            <div className="flex gap-2">
-              <Skeleton className="h-[22px] w-[50px]" />
-              <Skeleton className="h-[22px] w-[90px]" />
-              <Skeleton className="h-[22px] w-[70px]" />
-            </div>
-          </div>
-        </div>
-        <div className="mx-6 mb-5 mt-12">
-          <Skeleton className="h-12 max-w-[300px]" />
-          <Skeleton className="mt-12 h-6 w-auto" />
-          <Skeleton className="mt-2 h-6 max-w-[600px]" />
-          <Skeleton className="mt-2 h-6 w-auto" />
-          <Skeleton className="mt-2 h-6 w-3/4" />
-          <Skeleton className="mt-2 h-6 w-auto" />
-          <Skeleton className="mt-2 h-6 w-2/3" />
-          <Skeleton className="mt-2 h-6 max-w-[600px]" />
-          <Skeleton className="mt-2 h-6 w-auto" />
-        </div>
-      </div>
-    );
   }
   return (
     <div className="mx-auto mt-8 max-w-[700px]">
