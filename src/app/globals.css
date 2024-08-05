@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -31,7 +30,7 @@
     --chart-4: ;
     --chart-5: ;
     --scroll: #838fab;
-}
+  }
 
   .dark {
     --background: 222.2 84% 4.9%;
@@ -61,7 +60,6 @@
     --scroll: #333f5d;
   }
 }
-
 
 @layer base {
   * {

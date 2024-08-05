@@ -27,20 +27,21 @@ const Command = ({
 
   return (
     <>
-      <div className="relative flex items-center">
-        <div ref={commandRef} className="relative flex-grow">
+      <div className="relative flex max-h-96 w-auto items-center overflow-y-auto">
+        <div ref={commandRef} className="relative w-auto flex-grow">
           <pre className="overflow-wrap: break-word; white-space: pre-wrap; bg-[#1e293b]">
             <span
-              className="sticky -ml-[2px] select-none text-gray-500"
+              className="sticky-ml-[2px] select-none text-gray-500"
               aria-hidden="true"
             >
               $&nbsp;
             </span>
-            {command}
+            <span className="font-mono">{command}</span>
+
             {!nested && (
               <button
                 onClick={copyToClipboard}
-                className="absolute right-[10px] top-[36px] rounded-md bg-gray-300 p-1 transition dark:bg-gray-900"
+                className="absolute right-[10px] top-[36px] z-10 rounded-md bg-gray-300 p-1 transition dark:bg-gray-900"
               >
                 {copySuccess ? (
                   <Check className="size-4 text-green-600 dark:text-green-400" />

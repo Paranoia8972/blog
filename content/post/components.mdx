@@ -11,14 +11,16 @@ img: /components.png
 
 Hello, world! Here are some components and code `snippets`. They are all hand-crafted with love and care.
 
-
 # Components
 
 ## Callout
 
 ```tsx
-<Callout type="info | danger | caution | tip | note" title="...">Text</Callout>
+<Callout type="info | danger | caution | tip | note" title="...">
+  Text
+</Callout>
 ```
+
 <Callout>Default</Callout>
 <Callout type="note">Note</Callout>
 <Callout type="info">Info</Callout>
@@ -30,30 +32,35 @@ Hello, world! Here are some components and code `snippets`. They are all hand-cr
 
 ```tsx
 <Tabs>
-  <Tab id="tab1" title="Tab 1">Content 1</Tab>
-  <Tab id="tab2" title="Tab 2">Content 2</Tab>
+  <Tab id="tab1" title="Tab 1">
+    Content 1
+  </Tab>
+  <Tab id="tab2" title="Tab 2">
+    Content 2
+  </Tab>
 </Tabs>
 ```
+
 <Tabs>
   <Tab id="npm" title="npm">
-  ```bash
-  npx shadcn-ui@latest add skeleton
+    ```bash 
+    npx shadcn-ui@latest add skeleton
     ```
   </Tab>
   <Tab id="yarn" title="yarn">
-  ```bash
-  npx shadcn-ui@latest add skeleton
-  ```
+    ```bash 
+    npx shadcn-ui@latest add skeleton
+    ```
   </Tab>
-    <Tab id="pnpm" title="pnpm">
-  ```bash
-  pnpm dlx shadcn-ui@latest add skeleton
-  ```
+  <Tab id="pnpm" title="pnpm">
+    ```bash 
+    pnpm dlx shadcn-ui@latest add skeleton
+    ```
   </Tab>
-    <Tab id="bun" title="bun">
-  ```bash
-  bunx --bun shadcn-ui@latest add skeleton
-  ```
+  <Tab id="bun" title="bun">
+    ```bash
+    bunx --bun shadcn-ui@latest add skeleton
+    ```
   </Tab>
 </Tabs>
 
@@ -61,21 +68,23 @@ Hello, world! Here are some components and code `snippets`. They are all hand-cr
 
 ```tsx
 <Disclosure title="Disclosure Title">
-  This is the first paragraph of content.
-  This is the second paragraph of content, demonstrating multi-line support.
+  This is the first paragraph of content. This is the second paragraph of
+  content, demonstrating multi-line support.
 </Disclosure>
 ```
+
 <Disclosure title="Disclosure Title">
-  This is the first paragraph of content.
-  This is the second paragraph of content, demonstrating multi-line support.
-  Code works too:
-  ```py title="main.py"
-  print("Hello, world!")
+  This is the first paragraph of content. This is the second paragraph of
+  content, demonstrating multi-line support. Code works too: 
+  ```py title="main.py" 
+  print("Hello, world!") 
   ```
 </Disclosure>
 
 ## Command
-  ```tsx
-  <Command command="npm install my-package" />
-  ```
-  <Command command="npm install this-super-large-package" />
+
+```tsx
+<Command command="npm install my-package" />
+```
+
+<Command command="npm install this-super-large-package" />

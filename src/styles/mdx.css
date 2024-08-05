@@ -43,20 +43,20 @@
 }
 
 [data-rehype-pretty-code-figure] figcaption {
-  @apply rounded-t bg-[#0b192d] p-2 text-sm font-medium text-gray-300 border-t border-x border-[1px] font-mono border-[#1e293b];
+  @apply rounded-t border-[1px] border-x border-t border-[#1e293b] bg-[#0b192d] p-2 font-mono text-sm font-medium text-gray-300;
 }
 
 [data-rehype-pretty-code-figure] figcaption + pre {
-  @apply rounded-none rounded-b border-b border-x border-[1px] border-[#1e293b];
-} 
+  @apply rounded-none rounded-b border-[1px] border-x border-b border-[#1e293b];
+}
 
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
-  @apply border-l-2 border-l-blue-400 rounded-r-sm pt-[2px] pb-[2px];
+  @apply rounded-r-sm border-l-2 border-l-blue-400 pb-[2px] pt-[2px];
 }
 
 .prose code::before,
 .prose code::after {
-  content: '';
+  content: "";
 }
 pre:not([class*="Tailwind - Dark"]) {
   background-color: #1e293b;

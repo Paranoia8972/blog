@@ -10,35 +10,41 @@ img: /markdown.png
 ---
 
 # Markdown Example
+
 ```md
 # Markdown Example
- ```
+```
 
 ## Headers
+
 ```md
 ## Headers
 ```
 
 ### Third-level header
+
 ```md
 ### Third-level header
 ```
 
 ## Emphasis
 
-*Italic text*
+_Italic text_
+
 ```md
-*Italic text*
+_Italic text_
 ```
 
 **Bold text**
+
 ```md
 **Bold text**
 ```
 
-***Bold and italic text***
+**_Bold and italic text_**
+
 ```md
-***Bold and italic text***
+**_Bold and italic text_**
 ```
 
 ## Lists
@@ -50,6 +56,7 @@ img: /markdown.png
   - Subitem 1
   - Subitem 2
     - Sub-subitem 1
+
 ```md
 - Item 1
 - Item 2
@@ -64,6 +71,7 @@ img: /markdown.png
 2. Second item
    1. Subitem A
    2. Subitem B
+
 ```md
 1. First item
 2. Second item
@@ -74,6 +82,7 @@ img: /markdown.png
 ## Links
 
 [OnThePixel](https://onthepixel.net)
+
 ```md
 [OnThePixel](https://onthepixel.net)
 ```
@@ -81,6 +90,7 @@ img: /markdown.png
 ## Images
 
 ![Paranoia8972](https://github.com/Paranoia8972.png)
+
 ```md
 ![Paranoia8972](https://github.com/Paranoia8972.png)
 ```
@@ -88,6 +98,7 @@ img: /markdown.png
 ## Blockquotes
 
 > This is a blockquote.
+
 ```md
 > This is a blockquote.
 ```
@@ -97,6 +108,7 @@ img: /markdown.png
 ### Inline code
 
 `print("Hello, world!")`
+
 ```md
 `print("Hello, world!")`
 ```
@@ -108,31 +120,35 @@ def greet(name):
     print("Hello, " + name + "!")
 ```
 
-```md   
+````md
 ```python
 def greet(name):
     print("Hello, " + name + "!")```
 ```
+````
+
 ## Horizontal Rule
 
 ---
+
 ```md
 ---
 ```
 
 ## Tables
 
-| Name   | Age |
-|--------|-----|
-| Alice  | 25  |
-| Bob    | 30  |
-| Charlie| 35  |
+| Name    | Age |
+| ------- | --- |
+| Alice   | 25  |
+| Bob     | 30  |
+| Charlie | 35  |
+
 ```md
-| Name   | Age |
-|--------|-----|
-| Alice  | 25  |
-| Bob    | 30  |
-| Charlie| 35  |
+| Name    | Age |
+| ------- | --- |
+| Alice   | 25  |
+| Bob     | 30  |
+| Charlie | 35  |
 ```
 
 ## Task Lists
@@ -140,6 +156,7 @@ def greet(name):
 - [x] Task 1
 - [ ] Task 2
 - [ ] Task 3
+
 ```md showLineNumbers
 - [x] Task 1
 - [ ] Task 2
@@ -151,6 +168,7 @@ def greet(name):
 Here is a footnote reference[^1].
 
 [^1]: This is the footnote.
+
 ```md
 Here is a footnote reference[^1].
 
@@ -160,6 +178,7 @@ Here is a footnote reference[^1].
 ## Escaping Markdown Characters
 
 If you want to display special Markdown characters literally, you can escape them using a backslash: \*literal asterisks\*.
+
 ```md
 \*literal asterisks\*.
 ```
