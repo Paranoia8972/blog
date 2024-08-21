@@ -58,3 +58,7 @@
 .prose code::after {
   content: '';
 }
+pre:not([class*="Tailwind - Dark"]) {
+  background-color: #1e293b;
+  color: #efeff1;
+}
