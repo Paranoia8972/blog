@@ -1,5 +1,7 @@
 # Encryptopia Blog
 
+## This blog has been archived. Please refer to [Paranoia8972/encryptopia.dev](https://github.com/Paranoia8972/encryptopia.dev) for the up-to-date code for my website and blog.
+
 This blog is built using [Next.js](https://nextjs.org/) and supports markdown-based posts.
 
 ## Features
